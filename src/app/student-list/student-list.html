@@ -1,0 +1,53 @@
+<section class="student-list">
+  <h1>Student List</h1>
+
+  <form class="student-form" (ngSubmit)="addStudent()">
+    <input
+      type="text"
+      name="studentName"
+      placeholder="Student name"
+      [(ngModel)]="newStudent.name"
+    />
+    <input
+      type="number"
+      name="studentAge"
+      min="1"
+      placeholder="Age"
+      [(ngModel)]="newStudent.age"
+    />
+    <button type="submit">Add Student</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (student of students; track student.id) {
+        <tr>
+          <td>{{ student.id }}</td>
+          <td>{{ student.name }}</td>
+          <td>{{ student.age }}</td>
+          <td class="actions">
+            <button type="button" (click)="showDetails(student)">Details</button>
+            <button type="button" (click)="editStudent(student)">Edit</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <div class="student-panels">
+    <app-student-details [student]="selectedStudent" />
+    <app-student-edit
+      [student]="editingStudent"
+      (studentUpdated)="saveStudent($event)"
+      (editCancelled)="cancelEdit()"
+    />
+  </div>
+</section>

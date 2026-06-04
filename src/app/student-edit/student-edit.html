@@ -1,0 +1,24 @@
+<section class="student-edit">
+  <h2>Edit Student</h2>
+
+  @if (editedStudent) {
+    <form (ngSubmit)="save()">
+      <label>
+        Name
+        <input type="text" name="editName" [(ngModel)]="editedStudent.name" />
+      </label>
+
+      <label>
+        Age
+        <input type="number" name="editAge" min="1" [(ngModel)]="editedStudent.age" />
+      </label>
+
+      <div class="buttons">
+        <button type="submit">Save</button>
+        <button type="button" class="secondary" (click)="cancel()">Cancel</button>
+      </div>
+    </form>
+  } @else {
+    <p>Select a student to edit.</p>
+  }
+</section>

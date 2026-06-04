@@ -1,0 +1,33 @@
+<section class="ui-demo">
+  <h1>UI Libraries Demo</h1>
+
+  <div class="demo-grid">
+    <p-card header="PrimeNG Components" subheader="Card, Button, Tag">
+      <div class="demo-content">
+        <p-tag value="PrimeNG" severity="success" />
+        <p>This card uses three PrimeNG components.</p>
+        <p-button label="Prime Button" icon="pi pi-check" />
+      </div>
+    </p-card>
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Angular Material Components</mat-card-title>
+        <mat-card-subtitle>Card, Chips, Progress Bar, Button</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <mat-chip-set aria-label="Material examples">
+          <mat-chip>Material</mat-chip>
+          <mat-chip>Angular</mat-chip>
+        </mat-chip-set>
+
+        <mat-progress-bar mode="determinate" [value]="progressValue" />
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button matButton="filled">Material Button</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</section>

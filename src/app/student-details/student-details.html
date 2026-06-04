@@ -1,0 +1,11 @@
+<section class="student-details">
+  <h2>Student Details</h2>
+
+  @if (student) {
+    <p><strong>Id:</strong> {{ student.id }}</p>
+    <p><strong>Name:</strong> {{ student.name }}</p>
+    <p><strong>Age:</strong> {{ student.age }}</p>
+  } @else {
+    <p>Select a student to view details.</p>
+  }
+</section>

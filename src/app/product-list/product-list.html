@@ -1,0 +1,31 @@
+<section class="product-list">
+  <h1>Products</h1>
+
+  <app-product-filter
+    [categories]="categories"
+    [totalPrice]="totalPrice"
+    (categorySelected)="filterByCategory($event)"
+  />
+
+  <div class="products-grid">
+    @for (product of filteredProducts; track product.id) {
+      <article class="product-card">
+        <img [src]="product.imgUrl" [alt]="product.name" />
+
+        <div class="product-info">
+          <span class="category">{{ getCategoryName(product.catId) }}</span>
+          <h2>{{ product.name }}</h2>
+          <p class="price">{{ product.price }} EGP</p>
+
+          @if (product.quantity > 0) {
+            <p class="quantity">Quantity: {{ product.quantity }}</p>
+          } @else {
+            <p class="quantity out-of-stock">Out of stock</p>
+          }
+        </div>
+      </article>
+    } @empty {
+      <p class="empty-state">No products in this category.</p>
+    }
+  </div>
+</section>

@@ -1,0 +1,17 @@
+<div class="product-filter">
+  <label>
+    Category
+    <select
+      name="category"
+      [(ngModel)]="selectedCategoryId"
+      (ngModelChange)="onCategoryChange()"
+    >
+      <option [ngValue]="0">All categories</option>
+      @for (category of categories; track category.id) {
+        <option [ngValue]="category.id">{{ category.name }}</option>
+      }
+    </select>
+  </label>
+
+  <p>Total price: <strong>{{ totalPrice }} EGP</strong></p>
+</div>
